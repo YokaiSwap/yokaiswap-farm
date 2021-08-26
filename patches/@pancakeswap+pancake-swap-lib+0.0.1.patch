@@ -1,0 +1,33 @@
+diff --git a/node_modules/@pancakeswap/pancake-swap-lib/contracts/GSN/Context.sol b/node_modules/@pancakeswap/pancake-swap-lib/contracts/GSN/Context.sol
+index 6ee21fa..73232fa 100644
+--- a/node_modules/@pancakeswap/pancake-swap-lib/contracts/GSN/Context.sol
++++ b/node_modules/@pancakeswap/pancake-swap-lib/contracts/GSN/Context.sol
+@@ -12,13 +12,9 @@ pragma solidity >=0.4.0;
+  *
+  * This contract is only required for intermediate, library-like contracts.
+  */
+-contract Context {
+-    // Empty internal constructor, to prevent people from mistakenly deploying
+-    // an instance of this contract, which should be used via inheritance.
+-    constructor() internal {}
+-
++abstract contract Context {
+     function _msgSender() internal view returns (address payable) {
+-        return msg.sender;
++        return payable(msg.sender);
+     }
+ 
+     function _msgData() internal view returns (bytes memory) {
+diff --git a/node_modules/@pancakeswap/pancake-swap-lib/contracts/access/Ownable.sol b/node_modules/@pancakeswap/pancake-swap-lib/contracts/access/Ownable.sol
+index 0170eb7..de2b344 100644
+--- a/node_modules/@pancakeswap/pancake-swap-lib/contracts/access/Ownable.sol
++++ b/node_modules/@pancakeswap/pancake-swap-lib/contracts/access/Ownable.sol
+@@ -24,7 +24,7 @@ contract Ownable is Context {
+     /**
+      * @dev Initializes the contract setting the deployer as the initial owner.
+      */
+-    constructor() internal {
++    constructor() public {
+         address msgSender = _msgSender();
+         _owner = msgSender;
+         emit OwnershipTransferred(address(0), msgSender);

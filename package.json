@@ -6,7 +6,7 @@
     "node": ">=14"
   },
   "scripts": {
-    "postinstall": "sh patches/patch-all.sh",
+    "postinstall": "patch-package",
     "clean": "rimraf ./cache && rimraf ./artifacts",
     "compile": "yarn run clean && hardhat compile",
     "deploy:yok-and-monster": "yarn ts-node scripts/deploy-yok-and-monster.ts",
@@ -37,5 +37,9 @@
     "rimraf": "^3.0.0",
     "ts-node": "^10.2.1",
     "typescript": "^4.3.5"
+  },
+  "devDependencies": {
+    "patch-package": "^6.4.7",
+    "postinstall-postinstall": "^2.1.0"
   }
 }

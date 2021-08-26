@@ -1,4 +1,0 @@
-27c27
-<     constructor() internal {
----
->     constructor() public {
