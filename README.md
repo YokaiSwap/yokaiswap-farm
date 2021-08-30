@@ -47,3 +47,7 @@ Then compile and deploy.
 yarn compile
 yarn deploy
 ```
+
+---
+
+forked from [pancakeswap/pancake-farm](https://github.com/pancakeswap/pancake-farm)
